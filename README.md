@@ -73,5 +73,5 @@ https://user-images.githubusercontent.com/99788738/161420229-83f6d2ca-f48d-4ee9-
 
 ## 👨‍👨‍👧‍👧 협업 규칙
 
-<a href="http://www.naver.com">협업 규칙</a>
+<a href="https://github.com/botonger/pieceart_back/blob/main/doc/rules.md">협업 규칙</a>
 
