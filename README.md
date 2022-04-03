@@ -11,7 +11,8 @@
 
 ##### * 프로젝트 기간: 2022.03.11 - 2022.04.01 (약 3주)
 ##### * 팀원: 신채연, 공인배, 이종훈
-
+##### * 백엔드 저장소 : <a href="https://github.com/botonger/pieceart_back">click</a>
+##### * 프론트엔드 저장소 : <a href="https://github.com/botonger/pieceart_front">click</a>
 
 ![Untitled_Artwork 3](https://user-images.githubusercontent.com/99788738/161419579-4c364267-f288-4938-bdab-bb00472598be.jpg)
 
