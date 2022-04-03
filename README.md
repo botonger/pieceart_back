@@ -1,4 +1,4 @@
-# 피사트(PieceART) 백엔드
+# 피사트(PieceART)
 
 ## 👓 소개
 
@@ -34,10 +34,14 @@
 
 ## 🗒 설계
 
-<a href="">DB 구조(ERD)</a>
-<a href="">데이터 저장 (크롤링 및 저장)</a>
-<a href="">API 설계</a>
-<a href="">화면 설계</a>
+DB 구조(ERD)
+![ERD](https://user-images.githubusercontent.com/99788738/161421512-bfe5b98e-1db3-4636-b77f-9be1e2d37f4e.png)
+
+<a href="https://github.com/botonger/pieceart_back/blob/main/doc/api.md">API 설계</a>
+
+<a href="https://github.com/botonger/pieceart_back/blob/main/doc/frame.md">화면 설계</a>
+
+데이터 크롤링 및 저장
 
 ### 메인 서비스 / 구현 기능
 
