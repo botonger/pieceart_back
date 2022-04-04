@@ -1,3 +1,5 @@
+```
+
 from selenium import webdriver
 
 from selenium.webdriver.common.keys import Keys
@@ -30,3 +32,5 @@ for number in range(1,11):
     time.sleep(2)
             
 browser.quit()
+
+```
