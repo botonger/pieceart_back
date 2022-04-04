@@ -42,7 +42,7 @@ DB 구조(ERD)
 
 <a href="https://github.com/botonger/pieceart_back/blob/main/doc/frame.md">화면 설계</a>
 
-데이터 크롤링 및 저장
+<a href="https://github.com/botonger/pieceart_back/blob/main/doc/crawl.md">데이터 크롤링 및 저장</a>
 
 ## 메인 서비스 / 구현 기능
 
