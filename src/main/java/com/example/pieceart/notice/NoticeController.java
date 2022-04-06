@@ -102,7 +102,7 @@ public class NoticeController {
 
     @Operation(summary="공지사항 생성")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = NoticeDTO.class)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(implementation = NoticeDTO.class)))
     })
     @PostMapping(value="/admin/notices", consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE })
     public ResponseEntity<Map<String, Object>> createNotice(@RequestPart(value="notice") NoticeDTO noticeDTO,
@@ -140,7 +140,7 @@ public class NoticeController {
 
     @Operation(summary="공지사항 수정")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = NoticeDTO.class)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(implementation = NoticeDTO.class)))
     })
     @PutMapping("admin/notices/{id}")
     public ResponseEntity<Map<String, Object>> updateNotice(@PathVariable("id") Long id, @RequestPart(value="notice") NoticeDTO noticeDTO,
@@ -173,7 +173,7 @@ public class NoticeController {
 
     @Operation(summary="공지사항 삭제")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "204", description="successful", content = @Content(schema = @Schema(hidden = true)))
     })
     @DeleteMapping("admin/notices/{id}")
     public ResponseEntity<Map<String, Object>> deleteNotice(@PathVariable("id") Long id, @RequestParam(value="pass", required = false, defaultValue = "") String pass) {

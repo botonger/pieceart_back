@@ -41,7 +41,8 @@ public class WishlistController {
     }
     @Operation(summary="위시리스트 삭제")
     @DeleteMapping("/{wishlistId}")    @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "204", description="successful", content = @Content(schema = @Schema(hidden = true))),
+            @ApiResponse(responseCode = "404", description = "service not found", content = @Content(schema = @Schema(hidden = true)))
     })
     public ResponseEntity<Map<String, Object>> deleteWishlist(@PathVariable("wishlistId") Long wishlistId, Authentication authentication){
         String email = authentication.getPrincipal().toString();
@@ -55,7 +56,7 @@ public class WishlistController {
     }
     @Operation(summary="위시리스트 추가")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(hidden = true)))
     })
     @GetMapping("/works/{worksId}")
     public ResponseEntity<Map<String, Object>> createWishlist(@PathVariable("worksId") Long worksId, Authentication authentication){

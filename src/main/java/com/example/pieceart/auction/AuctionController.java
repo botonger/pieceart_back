@@ -41,7 +41,7 @@ public class AuctionController {
 
     @Operation(summary="응찰하기")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden=true)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(hidden=true)))
     })
     @PostMapping
     public ResponseEntity<Map<String, Object>> createNewBid(@RequestBody AuctionDTO auctionDTO,  Authentication authentication) {
@@ -60,7 +60,7 @@ public class AuctionController {
 
     @Operation(summary="입찰 취소")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden=true)))
+            @ApiResponse(responseCode = "204", description="successful", content = @Content(schema = @Schema(hidden=true)))
     })
     @DeleteMapping("/{auctionId}")
     public ResponseEntity<Map<String, Object>> deleteBid(@PathVariable("auctionId") Long auctionId, Authentication authentication) {

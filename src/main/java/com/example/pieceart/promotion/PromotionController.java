@@ -44,7 +44,8 @@ public class PromotionController {
 
     @Operation(summary="특정 프로모션 가져오기")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = PromotionDTO.class)))
+            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = PromotionDTO.class))),
+            @ApiResponse(responseCode = "404", description = "service not found", content = @Content(schema = @Schema(hidden = true)))
     })
     @GetMapping("/{id}")
     public ResponseEntity<Map<String, Object>> getPromotionById(@PathVariable("id") Long id){
@@ -62,7 +63,7 @@ public class PromotionController {
 
     @Operation(summary="프로모션 등록")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = PromotionDTO.class)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(implementation = PromotionDTO.class)))
     })
     @PostMapping
     public ResponseEntity<Map<String, Object>> createPromotion(@Valid @RequestBody PromotionDTO promotionDTO){
@@ -78,7 +79,8 @@ public class PromotionController {
 
     @Operation(summary="프로모션 삭제")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "204", description="successful", content = @Content(schema = @Schema(hidden = true))),
+            @ApiResponse(responseCode = "404", description = "service not found", content = @Content(schema = @Schema(hidden = true)))
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, Object>> deletePromotion(@PathVariable("id") Long id) {
@@ -93,7 +95,7 @@ public class PromotionController {
 
     @Operation(summary="프로모션 수정")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = PromotionDTO.class)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(implementation = PromotionDTO.class)))
     })
     @PutMapping("/{id}")
     public ResponseEntity<Map<String, Object>> updatePromotion(@PathVariable("id") Long id, @Valid @RequestBody PromotionDTO updated){

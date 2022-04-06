@@ -72,7 +72,7 @@ public class MemberUserDetailsService implements UserDetailsService {
                 .isGoogle(false)
                 .build();
         member.addMemberRole(MemberRole.USER);
-        memberRepository.save(member); 
+        memberRepository.save(member);
         return true;
     }
 

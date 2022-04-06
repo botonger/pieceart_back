@@ -31,7 +31,7 @@ public class MemberController {
 
     @Operation(summary="회원가입")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(hidden = true)))
     })
     @PostMapping("/signup")
     public ResponseEntity<Map<String, Object>> join(@RequestBody MemberDTO member) throws SQLException {
@@ -48,7 +48,7 @@ public class MemberController {
     @Operation(summary="회원정보수정")
     @PutMapping("users/edit")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(hidden = true)))
     })
     public ResponseEntity<Map<String, Object>> edit(@RequestBody MemberDTO member, Authentication authentication) throws IOException {
         String result = service.editMember(member, authentication);
@@ -60,12 +60,12 @@ public class MemberController {
     }
     @Operation(summary="회원탈퇴")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "204", description="successful", content = @Content(schema = @Schema(hidden = true)))
     })
     @DeleteMapping("/users/delete")
     public ResponseEntity<Map<String, Object>> delete(Authentication authentication){
         boolean result = service.deleteMember(authentication);
-        if(result) return ResponseEntity.ok().build();
+        if(result) return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 }

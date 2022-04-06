@@ -48,7 +48,7 @@ public class ArtistController {
 
     @Operation(summary="작가 등록")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = ArtistDTO.class)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(implementation = ArtistDTO.class)))
     })
     @PostMapping
     public ResponseEntity<Map<String, Object>> createArtist(@Valid @RequestBody ArtistDTO artistDTO){
@@ -64,7 +64,7 @@ public class ArtistController {
 
     @Operation(summary="작가 삭제")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "204", description="successful", content = @Content(schema = @Schema(hidden = true)))
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, Object>> deleteArtist(@PathVariable("id") Long id){
@@ -79,7 +79,7 @@ public class ArtistController {
 
     @Operation(summary="작가 수정")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = ArtistDTO.class)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(implementation = ArtistDTO.class)))
     })
     @PutMapping("/{id}")
     public ResponseEntity<Map<String, Object>> updateArtist(@PathVariable("id") Long id, @Valid @RequestBody ArtistDTO updated){

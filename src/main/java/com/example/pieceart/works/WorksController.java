@@ -33,7 +33,8 @@ public class WorksController {
 
     @Operation(summary="작품 목록 가져오기")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = WorksDTO.class)))
+            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = WorksDTO.class))),
+            @ApiResponse(responseCode = "404", description = "service not found", content = @Content(schema = @Schema(hidden = true)))
     })
     @GetMapping
     public ResponseEntity<Map<String, Object>> getAllWorks(@RequestParam(value = "artist", required = false, defaultValue = "") String artistName,
@@ -78,7 +79,7 @@ public class WorksController {
 
     @Operation(summary="작품 등록")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = WorksDTO.class)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(implementation = WorksDTO.class)))
     })
     @PostMapping
     public ResponseEntity<Map<String, Object>> createWorks(@Valid @RequestBody WorksDTO worksDTO){
@@ -95,7 +96,8 @@ public class WorksController {
 
     @Operation(summary="작품 삭제")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "204", description="successful", content = @Content(schema = @Schema(hidden = true))),
+            @ApiResponse(responseCode = "404", description = "service not found", content = @Content(schema = @Schema(hidden = true)))
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, Object>> deleteWorks(@PathVariable("id") Long id){
@@ -110,7 +112,7 @@ public class WorksController {
 
     @Operation(summary="작품 수정")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(implementation = WorksDTO.class)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(implementation = WorksDTO.class)))
     })
     @PutMapping("/{id}")
     public ResponseEntity<Map<String, Object>> updateWorks(@PathVariable("id") Long id, @Valid @RequestBody WorksDTO updated){

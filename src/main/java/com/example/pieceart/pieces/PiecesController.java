@@ -39,19 +39,21 @@ public class PiecesController {
 
     @Operation(summary="미술품 조각구매 취소")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "204", description="successful", content = @Content(schema = @Schema(hidden = true))),
+            @ApiResponse(responseCode = "404", description="service not found")
     })
     @DeleteMapping("/{piecesId}")
     public ResponseEntity<Map<String, Object>> cancelPieces(@PathVariable("piecesId") Long piecedId, Authentication authentication){
         String email = authentication.getPrincipal().toString();
         boolean result = piecesService.cancelPieces(email, piecedId);
         if(result) return ResponseEntity.noContent().build();
-        else return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        else return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @Operation(summary="미술품 조각구매")
     @ApiResponses(value={
-            @ApiResponse(responseCode = "200", description="successful", content = @Content(schema = @Schema(hidden = true)))
+            @ApiResponse(responseCode = "201", description="successful", content = @Content(schema = @Schema(hidden = true))),
+            @ApiResponse(responseCode = "400", description="piecesNum should be less than current number of pieces left, bigger than zero")
     })
     @PostMapping
     public ResponseEntity<Map<String, Object>> purchasePieces(@RequestBody PiecesDTO piecesDTO, Authentication authentication){
