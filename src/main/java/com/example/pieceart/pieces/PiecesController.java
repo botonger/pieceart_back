@@ -40,7 +40,7 @@ public class PiecesController {
     @Operation(summary="미술품 조각구매 취소")
     @ApiResponses(value={
             @ApiResponse(responseCode = "204", description="successful", content = @Content(schema = @Schema(hidden = true))),
-            @ApiResponse(responseCode = "404", description="service not found")
+            @ApiResponse(responseCode = "404", description="service not found", content = @Content(schema = @Schema(hidden = true)))
     })
     @DeleteMapping("/{piecesId}")
     public ResponseEntity<Map<String, Object>> cancelPieces(@PathVariable("piecesId") Long piecedId, Authentication authentication){
