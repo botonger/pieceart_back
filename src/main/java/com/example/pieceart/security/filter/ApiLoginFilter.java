@@ -124,7 +124,7 @@ public class ApiLoginFilter extends AbstractAuthenticationProcessingFilter {
         JSONObject json = new JSONObject();
         json.put("token", token);
 
-        if(roles.contains("USER")) json.put("role", "admin");
+        if(roles.contains("ADMIN")) json.put("role", "admin");
 
         PrintWriter out = response.getWriter();
         out.print(json);
